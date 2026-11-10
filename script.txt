@@ -1,0 +1,82 @@
+// 1. Код для калькулятора ІМТ
+function calculateBMI() {
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value) / 100;
+    const resultDiv = document.getElementById('bmi-result');
+
+    if (weight > 0 && height > 0) {
+        const bmi = (weight / (height * height)).toFixed(1);
+        let status = '';
+
+        if (bmi < 18.5) status = 'Недостатня маса тіла';
+        else if (bmi < 25) status = 'Нормальна маса тіла';
+        else if (bmi < 30) status = 'Надлишкова маса тіла';
+        else status = 'Ожиріння';
+
+        resultDiv.innerHTML = `Твій ІМТ: <strong>${bmi}</strong> (${status})`;
+    } else {
+        resultDiv.innerHTML = 'Будь ласка, введи коректні значення!';
+    }
+}
+
+// 2. Код для галереї-слайдера (15 фотографій)
+const galleryData = [
+    { src: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80', title: 'Свіжі овочі та зелень' },
+    { src: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=800&q=80', title: 'Фруктова тарілка' },
+    { src: 'https://images.unsplash.com/photo-1517673400267-0251440c45dc?auto=format&fit=crop&w=800&q=80', title: 'Здоровий сніданок' },
+    { src: 'https://images.unsplash.com/photo-1509358271058-acd01cc9386a?auto=format&fit=crop&w=800&q=80', title: 'Горіхи та насіння' },
+    { src: 'https://images.unsplash.com/photo-1610970881699-44a5587cabec?auto=format&fit=crop&w=800&q=80', title: 'Зелений смузі' },
+    { src: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80', title: 'Овочевий салат' },
+    { src: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80', title: 'Авокадо тост' },
+    { src: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80', title: 'Запечена риба' },
+    { src: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80', title: 'Свіжі ягоди' },
+    { src: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80', title: 'Цільнозерновий хліб' },
+    { src: 'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=800&q=80', title: 'Вода з лимоном' },
+    { src: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80', title: 'Яйця пашот' },
+    { src: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80', title: 'Йогурт з ягодами' },
+    { src: 'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=800&q=80', title: 'Бобові та злаки' },
+    { src: 'https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&w=800&q=80', title: 'Сухофрукти' }
+];
+
+let currentIndex = 0;
+
+function openGallery(index) {
+    currentIndex = index;
+    updateModalContent();
+    document.getElementById('gallery-modal').style.display = 'flex';
+}
+
+function closeGallery() {
+    document.getElementById('gallery-modal').style.display = 'none';
+}
+
+function changeSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = galleryData.length - 1;
+    if (currentIndex >= galleryData.length) currentIndex = 0;
+    updateModalContent();
+}
+
+function updateModalContent() {
+    const img = document.getElementById('modal-img');
+    const caption = document.getElementById('modal-caption');
+    
+    img.style.opacity = 0;
+    setTimeout(() => {
+        img.src = galleryData[currentIndex].src;
+        caption.innerText = `${galleryData[currentIndex].title} (${currentIndex + 1}/${galleryData.length})`;
+        img.style.opacity = 1;
+    }, 150);
+}
+
+// 3. Код для перемикання теми (Світла / Темна)
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const btn = document.getElementById('theme-toggle');
+    
+    if (document.body.classList.contains('dark-mode')) {
+        btn.innerText = ' Світла тема';
+    } else {
+        btn.innerText = ' Темна тема';
+    }
+}

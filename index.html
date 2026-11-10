@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Здорова Школа</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header class="header">
+        <div class="logo">🌿 Здорова Школа</div>
+        <nav class="menu">
+            <a href="#energy">Енергія & Баланс</a>
+            <a href="#plate">Тарілка здоров'я</a>
+            <a href="#bmi">Калькулятор ІМТ</a>
+            <a href="#labels">Етикетки</a>
+            <a href="#gallery">Галерея</a>
+        </nav>
+        <!-- Кнопка зміни теми -->
+        <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">🌙 Темна тема</button>
+    </header>
+
+    <!-- Головний екран (Hero-секція) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Здорове харчування: твій код енергії та успіху!</h1>
+            <p>Дізнайся, як правильний раціон допомагає мозку працювати на 100%, додає сил для спорту та зберігає відмінний настрій щодня.</p>
+            <a href="#plate" class="btn">Дослідити тарілку здоров'я 🍎</a>
+        </div>
+    </section>
+
+    <!-- Секція: Енергетичний баланс -->
+    <section id="energy" class="section energy-section">
+        <h2 class="section-title">Енергетичний баланс та метаболізм підлітка</h2>
+        <p class="section-desc">
+            У підлітковому віці твоє тіло активно росте. Метаболізм складається з двох процесів:
+            асиміляції (побудови клітин) та дисиміляції (розщеплення речовин для енергії).
+        </p>
+
+        <div class="cards-grid">
+            <div class="info-card">
+                <h3>🥩 Білки</h3>
+                <p>Головний будівельний матеріал для м'язів, кісток та імунної системи. Необхідні для активного росту.</p>
+            </div>
+            <div class="info-card">
+                <h3>🥑 Жири</h3>
+                <p>Надійне джерело довготривалої енергії та захист для нервової системи і мозку.</p>
+            </div>
+            <div class="info-card">
+                <h3>🍞 Вуглеводи</h3>
+                <p>Найшвидша енергія для фізичної активності та високих результатів у навчанні.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секція: Тарілка здоров'я -->
+    <section id="plate" class="section">
+        <h2 class="section-title">Тарілка здорового харчування: 5 кроків щодня</h2>
+        <p class="section-desc">Простий метод планування раціону без нудного підрахунку калорій:</p>
+
+        <div class="plate-container">
+            <div class="plate-circle">
+                <div class="plate-label label-veg">Овочі та фрукти<br>(50%)</div>
+                <div class="plate-label label-grain">Цільнозернові<br>(25%)</div>
+                <div class="plate-label label-protein">Корисні білки<br>(25%)</div>
+            </div>
+
+            <ol class="plate-list">
+                <li><strong>Овочі та фрукти (50%):</strong> Джерело клітковини для здорового травлення.</li>
+                <li><strong>Цільнозернові (25%):</strong> Каші, цільнозерновий хліб, паста твердих сортів.</li>
+                <li><strong>Корисні білки (25%):</strong> Птиця, риба, яйця, бобові, горіхи.</li>
+                <li><strong>Корисні жири:</strong> Оливкова олія, авокадо, насіння.</li>
+                <li><strong>Водний баланс:</strong> Чиста вода замість солодких газованих напоїв.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Секція: Калькулятор ІМТ -->
+    <section id="bmi" class="section bmi-section">
+        <h2 class="section-title">Самоконтроль: Розрахунок Індексу Маси Тіла (ІМТ)</h2>
+        
+        <div class="bmi-card">
+            <div class="input-group">
+                <label for="weight">Маса тіла (кг):</label>
+                <input type="number" id="weight" placeholder="Наприклад: 55">
+            </div>
+
+            <div class="input-group">
+                <label for="height">Зріст (см):</label>
+                <input type="number" id="height" placeholder="Наприклад: 165">
+            </div>
+
+            <button class="btn btn-bmi" onclick="calculateBMI()">Розрахувати ІМТ 📊</button>
+            <div id="bmi-result" class="bmi-result"></div>
+        </div>
+    </section>
+
+    <!-- Секція: Етикетки -->
+    <section id="labels" class="section">
+        <h2 class="section-title">Як читати етикетки в магазині?</h2>
+        
+        <div class="cards-grid">
+            <div class="info-card">
+                <h3>1. Перевіряйте терміни</h3>
+                <p>Завжди звертайте увагу на термін придатності та цілісність упаковки.</p>
+            </div>
+            <div class="info-card">
+                <h3>2. Порядок інгредієнтів</h3>
+                <p>Інгредієнти вказуються в порядку спадання. На першому місці — те, чого в продукті найбільше.</p>
+            </div>
+            <div class="info-card">
+                <h3>3. Прихований цукор</h3>
+                <p>Звертайте увагу на вміст цукру, солі, консервантів та обов'язково перевіряйте наявність алергенів.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секція галереї зі слайдером -->
+    <section id="gallery" class="section">
+        <h2 class="section-title">Галерея здорового харчування</h2>
+        <p class="section-desc">Натисни на фото, щоб відкрити слайдер.</p>
+
+        <div class="gallery-item" onclick="openGallery(0)">
+            <img id="preview-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80" alt="Галерея">
+            <p>Відкрити галерею (15 фото) 🔍</p>
+        </div>
+
+        <div id="gallery-modal" class="modal">
+            <div class="modal-content modal-slider">
+                <span class="close-btn" onclick="closeGallery()">✕</span>
+                <button class="nav-btn prev-btn" onclick="changeSlide(-1)">❮</button>
+                <img id="modal-img" src="" alt="Фото галереї">
+                <button class="nav-btn next-btn" onclick="changeSlide(1)">❯</button>
+                <p id="modal-caption" class="modal-caption"></p>
+            </div>
+        </div>
+    </section>
+
+   <!-- Підвал сайту -->
+    <footer class="footer">
+        <p>© 2026 Проєкт «Кожна школа — здорова школа».</p>
+        <p>Вебсторінка учня 9-А класу Сингаївського Ярослава.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
